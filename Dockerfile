@@ -1,5 +1,5 @@
 FROM alpine:latest
-MAINTAINER Andreas Rammhold (andreas@rammhold.de)
+MAINTAINER Cody Hiar (codyfh@gmail.com)
 
 # Install necessary stuff
 RUN apk -U --no-progress upgrade && \
@@ -9,13 +9,11 @@ RUN apk -U --no-progress upgrade && \
 COPY docker /app/taskd/
 
 # Set the data location
-ARG TASKDDATA
-ENV TASKDDATA ${TASKDDATA:-/var/taskd}
+ENV TASKDDATA /var/taskd
 ENV TASKD_ORGANIZATION Public
-ENV TASKD_USERNAME Bob
+ENV TASKD_USERNAME "Cody Hiar"
 ENV CLIENT_CERT_PATH /var/taskd/client
 
 # Configure container
-VOLUME ["${TASKDDATA}"]
 EXPOSE 53589
 ENTRYPOINT ["/app/taskd/run.sh"]

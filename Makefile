@@ -3,5 +3,4 @@
 default: build
 
 build:
-	@docker build -t jeckel/docker-taskd .
-
+	@docker build -t thornycrackers/docker-taskd .
